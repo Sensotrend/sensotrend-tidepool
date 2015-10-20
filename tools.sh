@@ -15,17 +15,17 @@ apt-get install -y build-essential > node-tools.log
 echo "Installing PhantomJS..."
 # Installation of PhantomJS taken from https://gist.github.com/julionc/7476620
 apt-get install build-essential chrpath libssl-dev libxft-dev > libs.log
-sudo apt-get install libfreetype6 libfreetype6-dev > freetype.log
-sudo apt-get install libfontconfig1 libfontconfig1-dev > fontconfig.log
+apt-get install libfreetype6 libfreetype6-dev > freetype.log
+apt-get install libfontconfig1 libfontconfig1-dev > fontconfig.log
 
 cd ~
 export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
 wget -o phantomjs-fetch.log http://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
 
-sudo tar xvjf $PHANTOM_JS.tar.bz2 >> phantomjs-fetch.log
+tar xvjf $PHANTOM_JS.tar.bz2 >> phantomjs-fetch.log
 
-sudo mv $PHANTOM_JS /usr/local/share
-sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+mv $PHANTOM_JS /usr/local/share
+ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 
 echo "Installing Gulp..."
 npm install --global gulp > gulp.log
