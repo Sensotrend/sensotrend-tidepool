@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-apt-get update
+echo "Update apt-get"
+apt-get -q update
+echo "Install curl"
 apt-get install -y curl > curl.log
+echo "Install git"
 apt-get install -y git > git.log
