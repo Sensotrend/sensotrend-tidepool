@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Add some convenient aliases for tidepool
-echo "alias tidepool-runservers='cd /home/vagrant/tidepool/ && . tools/runservers'" > /etc/profile.d/tidepool.sh
-echo "alias tidepool-update='cd /home/vagrant/tidepool/tools && sh ./update_current_tidepool_repos.sh'" >> /etc/profile.d/tidepool.sh
+alias tidepool-runservers='cd /home/vagrant/tidepool/ && . tools/runservers'
+alias tidepool-update='cd /home/vagrant/tidepool/tools && sh ./update_current_tidepool_repos.sh'
 
 function fetch {
   pushd /home/vagrant
