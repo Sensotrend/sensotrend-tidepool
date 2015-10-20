@@ -21,7 +21,7 @@ function fetch {
   popd	
 }
 
-function start {
+function run {
   pushd /home/vagrant/tidepool/
   . tools/runservers
   popd
@@ -46,7 +46,7 @@ if [ -d "tidepool/tools" ]; then
       echo -e "\nYou can start the services manually with 'tidepool-runservers'.\n"
     ;;
     * )
-      start
+      run
     ;;
   esac
 fi
