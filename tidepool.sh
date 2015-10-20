@@ -34,6 +34,7 @@ if [ ! -d "tidepool" ]; then
       echo -e "\nPlease fetch the repos yourself.\n"
     ;;
     * )
+      echo -e "\n"
       fetch
     ;;
   esac
@@ -46,6 +47,7 @@ if [ -d "tidepool/tools" ]; then
       echo -e "\nYou can start the services manually with 'tidepool-runservers'.\n"
     ;;
     * )
+      echo -e "\n"
       run
     ;;
   esac
