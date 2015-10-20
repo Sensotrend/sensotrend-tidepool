@@ -1,0 +1,2 @@
+# preserve UNIX line endings for files uploaded to virtual server
+tidepool.sh binary

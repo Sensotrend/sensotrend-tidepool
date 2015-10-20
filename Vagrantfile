@@ -34,10 +34,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision "tools", type: "shell" do |tools|
     tools.path = "tools.sh"
   end
+
+  config.vm.provision "tidepool", type: "file" do |f|
+    f.source = "tidepool.sh"
+	f.destination = "tidepool.sh"
+  end
   
-  config.vm.provision "tidepool", type: "shell" do |tp|
-    tp.privileged = "false"
-    tp.path = "get_tidepool.sh"
+  config.vm.provision "profile", type: "shell" do |p|
+    p.inline = "mv /home/vagrant/tidepool.sh /etc/profile.d/"
   end
   
 end
