@@ -5,6 +5,3 @@ tomcat/
 .librarian/
 *.lock
 *.box
-
-# Managed by the VM
-tidepool/

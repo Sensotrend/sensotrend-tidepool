@@ -15,10 +15,7 @@ Vagrant.configure("2") do |config|
 
   # Let's make the VM accessible via a static local IP too
   config.vm.network "private_network", ip: "192.168.33.100"
- 
-  # Share the tidepool directory of the VMs file system
-  config.vm.synced_folder "tidepool", "/home/vagrant/tidepool"
- 
+  
   # Set the memory available and number of cpus when using VirtualBox
   config.vm.provider "virtualbox" do |vb|
     vb.memory = 2048
