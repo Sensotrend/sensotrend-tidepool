@@ -14,9 +14,9 @@ function fetch {
     echo "Skipping, because there is already a directory by that name."
   else
     git clone https://github.com/tidepool-org/tools.git
-    cd tools
-    sh ./get_current_tidepool_repos.sh
   fi
+  cd tools
+  sh ./get_current_tidepool_repos.sh
 
   popd	
 }
@@ -27,7 +27,7 @@ function run {
   popd
 }
 
-if [ ! -d "tidepool" ]; then
+if [ ! -d "tidepool/hakken" ]; then
   read -n 1 -p "Fetch and set up tidepool repos? (Y/n) " answer1
   case ${answer1:0:1} in
     n|N )
