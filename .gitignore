@@ -1,0 +1,7 @@
+# Vagrant runtime files
+.tmp/
+.vagrant
+tomcat/
+.librarian/
+*.lock
+*.box
