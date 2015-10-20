@@ -30,8 +30,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision "bootstrap", type: "shell" do |s|
     s.path = "bootstrap.sh"
   end
+
+  config.vm.provision "tools", type: "shell" do |tools|
+    tools.path = "tools.sh"
+  end
   
   config.vm.provision "tidepool", type: "shell" do |tp|
+    tp.privileged = "false"
     tp.path = "get_tidepool.sh"
   end
   
