@@ -32,7 +32,7 @@ function chromeuploader {
   # local development settings
   source config/local.sh
   npm install
-  npm start
+  webpack -d
   if [ ! -d "/vagrant/chrome-uploader" ]; then
   mkdir /vagrant/chrome-uploader
   fi
