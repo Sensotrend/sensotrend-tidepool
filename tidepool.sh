@@ -36,7 +36,8 @@ function chromeuploader {
   if [ ! -d "/vagrant/chrome-uploader" ]; then
   mkdir /vagrant/chrome-uploader
   fi
-  cp -r * /vagrant/chrome-uploader
+  # copy only necessary files/folders
+  cp -r images/ build/ main.js index.html manifest.json /vagrant/chrome-uploader
   popd
 }
 

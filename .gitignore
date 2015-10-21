@@ -2,6 +2,7 @@
 .tmp/
 .vagrant
 tomcat/
+chrome-uploader/
 .librarian/
 *.lock
 *.box
