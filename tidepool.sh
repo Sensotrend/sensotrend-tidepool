@@ -27,7 +27,7 @@ function run {
   popd
 }
 
-if [ ! -d "tidepool/chrome-uploader" ]; then
+if [ ! -d "tidepool" ]; then
   read -n 1 -p "Fetch and set up tidepool repos? (Y/n) " answer1
   case ${answer1:0:1} in
     n|N )
@@ -52,3 +52,5 @@ if [ -d "tidepool/tools" ]; then
     ;;
   esac
 fi
+
+
