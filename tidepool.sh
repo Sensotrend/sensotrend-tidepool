@@ -27,6 +27,20 @@ function run {
   popd
 }
 
+function chromeuploader {
+  pushd /home/vagrant/tidepool/chrome-uploader
+  # local development settings
+  source config/local.sh
+  npm install
+  npm start
+  if [ ! -d "/vagrant/chrome-uploader" ]; then
+  mkdir /vagrant/chrome-uploader
+  fi
+  cp -r * /vagrant/chrome-uploader
+  popd
+}
+
+
 if [ ! -d "tidepool" ]; then
   read -n 1 -p "Fetch and set up tidepool repos? (Y/n) " answer1
   case ${answer1:0:1} in
@@ -49,6 +63,19 @@ if [ -d "tidepool/tools" ]; then
     * )
       echo -e "\n"
       run
+    ;;
+  esac
+fi
+
+if [ -d "tidepool/chrome-uploader" ]; then
+  read -n 1 -p "build Chrome Uploader and transfer into shared vagrant folder? (Y/n) " answer3
+  case ${answer3:0:1} in
+    n|N )
+      echo -e "\nNext time then.\n"
+    ;;
+    * )
+      echo -e "\n"
+      chromeuploader
     ;;
   esac
 fi
