@@ -68,17 +68,21 @@ if [ -d "tidepool/tools" ]; then
   esac
 fi
 
-if [ -d "tidepool/chrome-uploader" ]; then
-  read -n 1 -p "build Chrome Uploader and transfer into shared vagrant folder? (Y/n) " answer3
-  case ${answer3:0:1} in
-    n|N )
-      echo -e "\nNext time then.\n"
-    ;;
-    * )
-      echo -e "\n"
-      chromeuploader
-    ;;
-  esac
+if [ ! -d "/vagrant/chrome-uploader" ]; then
+  if [ -d "tidepool/chrome-uploader" ]; then
+    read -n 1 -p "build Chrome Uploader and transfer into shared vagrant folder? (Y/n) " answer3
+    case ${answer3:0:1} in
+      n|N )
+        echo -e "\nNext time then.\n"
+      ;;
+      * )
+        echo -e "\n"
+        chromeuploader
+      ;;
+    esac
+  else
+    echo "No Chrome Uploader files found. You should have 'chrome-uploader' repository in /tidepool."
+  fi
 fi
 
 
