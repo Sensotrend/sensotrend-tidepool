@@ -38,7 +38,7 @@ function chromeuploader {
   mkdir /vagrant/chrome-uploader
   fi
   # copy only necessary files/folders
-  cp -r images/ build/ main.js index.html manifest.json /vagrant/chrome-uploader/
+  cp -r build fonts images main.js index.html manifest.json /vagrant/chrome-uploader/
   popd
 }
 
