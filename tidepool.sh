@@ -81,7 +81,7 @@ if [ ! -d "/vagrant/chrome-uploader" ]; then
       ;;
     esac
   else
-    echo "No Chrome Uploader files found. You should have 'chrome-uploader' repository in /tidepool."
+    echo "Check repository 'chrome-uploader' into /home/vagrant/tidepool/ to enable easy build & share to host machine."
   fi
 fi
 
