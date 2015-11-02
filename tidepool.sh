@@ -32,12 +32,13 @@ function chromeuploader {
   # local development settings
   source config/local.sh
   npm install
+  source scripts/config.sh
   webpack -d
   if [ ! -d "/vagrant/chrome-uploader" ]; then
   mkdir /vagrant/chrome-uploader
   fi
   # copy only necessary files/folders
-  cp -r images/ build/ main.js index.html manifest.json /vagrant/chrome-uploader
+  cp -r images/ build/ main.js index.html manifest.json /vagrant/chrome-uploader/
   popd
 }
 
