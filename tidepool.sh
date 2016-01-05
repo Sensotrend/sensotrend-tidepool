@@ -27,7 +27,21 @@ function run {
   popd
 }
 
-if [ ! -d "tidepool/chrome-uploader" ]; then
+function chromeuploader {
+  pushd /home/vagrant/tidepool/chrome-uploader
+  # local development settings, with debug
+  . config/debug.sh
+  npm install
+  sh scripts/config.sh
+  webpack -d
+  mkdir -p /vagrant/chrome-uploader
+  # copy only necessary files/folders
+  cp -r build fonts images main.js index.html manifest.json /vagrant/chrome-uploader/
+  popd
+}
+
+
+if [ ! -d "tidepool" ]; then
   read -n 1 -p "Fetch and set up tidepool repos? (Y/n) " answer1
   case ${answer1:0:1} in
     n|N )
@@ -49,6 +63,24 @@ if [ -d "tidepool/tools" ]; then
     * )
       echo -e "\n"
       run
+      echo -e "\nThe services can be stopped with 'tp_kill'.\n"
     ;;
   esac
+fi
+
+if [ ! -d "/vagrant/chrome-uploader" ]; then
+  if [ -d "tidepool/chrome-uploader" ]; then
+    read -n 1 -p "build Chrome Uploader and transfer into shared vagrant folder? (Y/n) " answer3
+    case ${answer3:0:1} in
+      n|N )
+        echo -e "\nYou can also build the uploader yourself and copy it to /vagrant dir that's shared with the host machine.\n"
+      ;;
+      * )
+        echo -e "\n"
+        chromeuploader
+      ;;
+    esac
+  else
+    echo "Check repository 'chrome-uploader' into /home/vagrant/tidepool/ to enable easy build & share to host machine."
+  fi
 fi
