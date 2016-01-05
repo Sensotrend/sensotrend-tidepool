@@ -34,9 +34,9 @@ function chromeuploader {
   npm install
   sh scripts/config.sh
   webpack -d
-  mkdir -p /vagrant/chrome-uploader
+  sudo mkdir -p /vagrant/chrome-uploader
   # copy only necessary files/folders
-  cp -r build fonts images main.js index.html manifest.json /vagrant/chrome-uploader/
+  sudo cp -r build fonts images main.js index.html manifest.json /vagrant/chrome-uploader/
   popd
 }
 
