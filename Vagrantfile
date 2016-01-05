@@ -16,10 +16,12 @@ Vagrant.configure("2") do |config|
   # Let's make the VM accessible via a static local IP too
   config.vm.network "private_network", ip: "192.168.33.100"
   
-  # Set the memory available and number of cpus when using VirtualBox
+  # Set the parameters when using VirtualBox
   config.vm.provider "virtualbox" do |vb|
     vb.memory = 2048
     vb.cpus = 2
+    vb.customize ["modifyvm", :id, "--vram", "128"]	
+    vb.gui = true
   end
   
   # Set the memory available when using Paralells
