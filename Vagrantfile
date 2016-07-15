@@ -4,6 +4,9 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
+  # Use UTF-8 as the default locale
+  ENV['LC_ALL']="en_US.UTF-8"
+
   # Let's call the host something contextual
   config.vm.hostname = "tidepool-vm"
   
