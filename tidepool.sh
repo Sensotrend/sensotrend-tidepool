@@ -29,8 +29,8 @@ function run {
 
 function chromeuploader {
   pushd /home/vagrant/tidepool/chrome-uploader
-  # local development settings, with debug
-  . config/debug.sh
+  # local development settings
+  . config/local.sh
   npm install
   sh scripts/config.sh
   webpack -d
